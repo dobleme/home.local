@@ -23,3 +23,4 @@ $ ansible-galaxy install -r requirements.yml
 - [ ] Add GNOME extensions
 - [ ] Add VSCode settings/extensions
 - [ ] Install GTK themes/icons
+- [ ] Generate and link ssh config/keys
