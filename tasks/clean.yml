@@ -1,0 +1,6 @@
+---
+- name: Remove non essential packages
+  ansible.builtin.dnf:
+    name: "{{ clean_packages }}"
+    state: absent
+    autoremove: yes

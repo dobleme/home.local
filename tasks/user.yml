@@ -1,0 +1,73 @@
+---
+- name: Check user is defined
+  when: user is undefined
+  ansible.builtin.set_fact:
+    user: "{{ ansible_facts.user_id }}"
+
+- name: Check home dir is defined
+  when: home is undefined
+  ansible.builtin.set_fact:
+    home: "/home/{{ user }}"
+
+- name: Create base user folders
+  ansible.builtin.file:
+    path: "{{ home }}/{{ item }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ user_folders }}"
+
+- name: Install starship prompt
+  include_tasks: "lib/remote-install.yml"
+  vars:
+    owner: "{{ user }}"
+    pkg:
+      name: starship
+      tar_url: https://github.com/starship/starship/releases/download/v<version>/starship-x86_64-unknown-linux-gnu.tar.gz
+      version: 1.12.0
+      dest: "{{ home }}/.local/bin"
+      creates: "{{ home }}/.local/bin/starship"
+
+- name: Install shell plugins
+  when: user_shell_plugins is defined
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "{{ home }}/{{ item.dest }}"
+    version: "{{ item.version }}"
+    clone: true
+  loop: "{{ user_shell_plugins }}"
+
+- name: Clone/Pull dotfiles
+  when: user_dotfiles is defined
+  ansible.builtin.git:
+    repo: "{{ user_dotfiles.repo }}"
+    dest: "{{ home }}/{{ user_dotfiles.dest }}"
+    version: "{{ user_dotfiles.ref }}"
+    clone: true
+    update: true
+
+- name: Create/Update dotfiles symlinks
+  when: user_dotfiles is defined
+  block:
+    - name: Copy .rcrc
+      ansible.builtin.copy:
+        src: "{{ home }}/{{ user_dotfiles.dest }}/.rcrc"
+        dest: "{{ home }}/.rcrc"
+    - name: Link the dotfiles
+      ansible.builtin.command:
+        cmd: rcup -f -d "{{ home }}/{{ user_dotfiles.dest }}"
+        chdir: "{{ home }}"
+
+- name: Set {{ user_shell }} shell to {{ user }}
+  when: user_shell is defined
+  become: true
+  ansible.builtin.user:
+    name: "{{ user }}"
+    shell: "{{ user_shell }}"
+
+- name: Add {{ user }} to groups
+  when: user_groups is defined
+  become: true
+  ansible.builtin.user:
+    name: "{{ user }}"
+    groups: "{{ user_groups }}"
+    append: true

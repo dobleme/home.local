@@ -1,0 +1,14 @@
+---
+- name: Add repository remote "{{ repo.name }}"
+  when: repo.url is defined
+  ansible.builtin.command: 
+    cmd: "dnf config-manager --add-repo {{ repo.url }}"
+    creates: "/etc/yum.repos.d/{{ repo.name }}.repo"
+
+- name: Add repository manual "{{ repo.name }}"
+  when: repo.path is defined
+  ansible.builtin.copy: 
+    src: "{{ repo.path }}"
+    dest: "/etc/yum.repos.d/{{ repo.name }}.repo"
+    owner: root
+    group: root

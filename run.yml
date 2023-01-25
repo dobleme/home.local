@@ -1,0 +1,25 @@
+---
+- hosts: all
+
+  vars_files:
+    - config.yml
+    - dconf.yml
+
+  tasks:
+    - import_tasks: tasks/clean.yml
+      become: yes
+      tags: ["never", "clean"]
+
+    - import_tasks: tasks/essentials.yml
+      become: yes
+      tags: ["essentials"]
+
+    - import_tasks: tasks/system.yml
+      become: yes
+      tags: ["system"]
+
+    - import_tasks: tasks/user.yml
+      tags: ["user"]
+
+    - import_tasks: tasks/gnome.yml
+      tags: ["user", "gnome"]

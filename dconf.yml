@@ -1,0 +1,85 @@
+dconf:
+  # Keybindings
+  - key: org/gnome/desktop/wm/keybindings/move-to-monitor-down
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybindings/move-to-monitor-up
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybindings/move-to-monitor-left
+    value: "['<Shift><Control><Alt>Left']"
+  - key: org/gnome/desktop/wm/keybindings/move-to-monitor-right
+    value: "['<Shift><Control><Alt>Right']"
+  - key: org/gnome/dekstop/wm/keybindings/move-to-workspace-1
+    value: "['<Control><Alt><Super>1']"
+  - key: org/gnome/dekstop/wm/keybindings/move-to-workspace-2
+    value: "['<Control><Alt><Super>2']"
+  - key: org/gnome/dekstop/wm/keybindings/move-to-workspace-3
+    value: "['<Control><Alt><Super>3']"
+  - key: org/gnome/dekstop/wm/keybindings/move-to-workspace-4
+    value: "['<Control><Alt><Super>4']"
+  - key: org/gnome/dekstop/wm/keybindings/move-to-workspace-last
+    value: "['<Control><Alt><Super>End']"
+  - key: org/gnome/dekstop/wm/keybindings/move-to-workspace-left
+    value: "['<Control><Alt><Super>Left']"
+  - key: org/gnome/dekstop/wm/keybindings/move-to-workspace-right
+    value: "['<Control><Alt><Super>Right']"
+  - key: org/gnome/desktop/wm/keybinding/switch-to-workspace-1
+    value: "['<Control><Alt>1']"
+  - key: org/gnome/desktop/wm/keybinding/switch-to-workspace-2
+    value: "['<Control><Alt>2']"
+  - key: org/gnome/desktop/wm/keybinding/switch-to-workspace-3
+    value: "['<Control><Alt>3']"
+  - key: org/gnome/desktop/wm/keybinding/switch-to-workspace-4
+    value: "['<Control><Alt>4']"
+  - key: org/gnome/desktop/wm/keybinding/switch-to-workspace-last
+    value: "['<Control><Alt>Page_Down']"
+  - key: org/gnome/desktop/wm/keybinding/switch-to-workspace-left
+    value: "['<Control><Alt>Left']"
+  - key: org/gnome/desktop/wm/keybinding/switch-to-workspace-right
+    value: "['<Control><Alt>Right']"
+  - key: org/gnome/desktop/wm/keybinding/switch-windows
+    value: "['<Alt>Tab']"
+  - key: org/gnome/desktop/wm/keybinding/switch-windows-backward
+    value: "['<Shift><Alt>Tab']"
+  - key: org/gnome/dekstop/wm/keybindings/panel-run-dialog
+    value: "[]"
+  - key: org/gnome/dekstop/wm/keybindings/show-desktop
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybinding/switch-applications
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybinding/switch-applications-backward
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybinding/switch-group
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybinding/switch-group-backward
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybinding/switch-panels
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybinding/switch-panels-backward
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybindings/cycle-group
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybindings/cycle-group-backward
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybindings/cycle-panel
+    value: "[]"
+  - key: org/gnome/desktop/wm/keybindings/cycle-panels-backward
+    value: "[]"
+  # Media
+  - key: org/gnome/settings-daemon/plugins/media-keys/control-center
+    value: "['<Control><Alt>s']"
+  - key: org/gnome/settings-daemon/plugins/media-keys/help
+    value: "[]"
+  - key: org/gnome/settings-daemon/plugins/media-keys/home
+    value: "['<Control><Alt>h']"
+  - key: org/gnome/settings-daemon/plugins/media-keys/www
+    value: "['<Control><Alt>w']"
+  # Custom Keybindings
+  - key: org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
+    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+  ## Term
+  - key: org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+    value: '<Control><Alt>t'
+  - key: org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+    value: '/usr/bin/x-term'
+  - key: org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+    value: 'Term'

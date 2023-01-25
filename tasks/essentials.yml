@@ -1,0 +1,37 @@
+---
+# dnf
+- name: Add dnf repositories
+  include_tasks: "lib/dnf-repo.yml"
+  loop: "{{ dnf_repositories }}"
+  loop_control:
+    loop_var: repo
+
+- name: Autoremove unneeded packages installed as dependencies
+  ansible.builtin.dnf:
+    autoremove: yes
+
+- name: Install dnf essential packages
+  ansible.builtin.dnf:
+    name: "{{ dnf_packages }}"
+    state: latest
+
+- name: Upgrade all packages
+  ansible.builtin.dnf:
+    name: '*'
+    state: latest
+
+# flatpak
+- name: Add flatpak remotes
+  community.general.flatpak_remote:
+    name: "{{ item.repo }}"
+    state: present
+    flatpakrepo_url: "{{ item.url }}"
+    method: system
+  loop: "{{ flatpak_remotes }}"
+
+- name: Install flatpak packages
+  community.general.flatpak:
+    name: "{{ item.name | default(item) }}"
+    state: present
+    remote: "{{ item.remote | default('flathub') }}"
+  loop: "{{ flatpak_packages }}"
