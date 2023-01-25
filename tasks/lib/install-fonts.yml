@@ -1,0 +1,27 @@
+---
+- name: Ensure user fonts dir exists
+  when: (fonts is defined) and (fonts | length > 0)
+  ansible.builtin.file:
+    path: "{{ home }}/.fonts/{{ item.dir }}"
+    state: directory
+    group: "{{ owner }}"
+    owner: "{{ owner }}"
+    mode: '0755'
+  loop: "{{ fonts }}"
+
+- name: Install user fonts
+  when: (fonts is defined) and (fonts | length > 0)
+  ansible.builtin.unarchive:
+    src: "{{ item.url }}"
+    dest: "{{ home }}/.fonts/{{ item.dir }}"
+    include: "{{ item.fonts }}"
+    group: "{{ owner }}"
+    owner: "{{ owner }}"
+    creates: "{{ home }}/.fonts/{{ item.dir }}/{{ item.fonts | first }}"
+    remote_src: true
+  loop: "{{ fonts }}"
+  register: res
+
+- name: Build font information caches
+  when: res.skipped == false
+  command: fc-cache --force --verbose {{ home }}/.fonts

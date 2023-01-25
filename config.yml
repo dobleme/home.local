@@ -55,6 +55,23 @@ user_folders:
   - .fonts
   - dev
 
+user_fonts:
+  - url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.0/CascadiaCode.zip
+    dir: CascadiaCode
+    fonts:
+      - 'Caskaydia Cove Nerd Font Complete Mono Bold Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono Bold.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono ExtraLight Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono ExtraLight.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono Light Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono Light.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono Regular.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono SemiBold Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono SemiBold.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono SemiLight Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono SemiLight.otf'
+
 user_dotfiles: 
   repo: https://github.com/dobleme/dotfiles.git
   dest: dev/dotfiles

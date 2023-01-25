@@ -18,7 +18,7 @@ $ ansible-galaxy install -r requirements.yml
 
 ## TODO
 - [ ] Disable some desktop entries
-- [ ] Install fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.0/CascadiaCode.zip
+- [x] Install user fonts
 - [ ] Install JetBrains IDEs
 - [ ] Add GNOME extensions
 - [ ] Add VSCode settings/extensions

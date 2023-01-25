@@ -16,6 +16,12 @@
     mode: '0755'
   loop: "{{ user_folders }}"
 
+- name: Install user fonts
+  include_tasks: "lib/install-fonts.yml"
+  vars:
+    owner: "{{ user }}"
+    fonts: "{{ user_fonts }}"
+
 - name: Install starship prompt
   include_tasks: "lib/remote-install.yml"
   vars:
