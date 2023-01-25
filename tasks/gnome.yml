@@ -2,7 +2,7 @@
 - name: Load dconf
   community.general.dconf:
     key: "{{ item.key }}"
-    value: "'{{ item.value }}'"
+    value: "{{ item.value | string }}"
     state: present
   loop: "{{ dconf }}"
 
