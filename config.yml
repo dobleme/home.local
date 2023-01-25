@@ -2,7 +2,7 @@
 dnf_repositories:
   - name: docker-ce
     url: https://download.docker.com/linux/fedora/docker-ce.repo
-  - name: vivaldi
+  - name: vivaldi-fedora
     url: https://repo.vivaldi.com/archive/vivaldi-fedora.repo
   - name: vscode
     path: "{{ playbook_dir }}/repos/vscode.repo"
