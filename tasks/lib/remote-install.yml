@@ -1,6 +1,6 @@
 ---
 - name: Ensure {{ pkg.name }} dir "{{ pkg.dest }}" exists
-  file:
+  ansible.builtin.file:
     path: "{{ pkg.dest }}"
     state: directory
     mode: '0755'
