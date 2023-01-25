@@ -63,6 +63,25 @@
         cmd: rcup -f -d "{{ home }}/{{ user_dotfiles.dest }}"
         chdir: "{{ home }}"
 
+- name: Create hide desktop entry
+  ansible.builtin.copy:
+    dest: "{{ home }}/.local/share/applications/hide"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    content: |
+      [Desktop Entry]
+      NoDisplay=true
+
+- name: Hide desktop entries
+  when: (user_desktop_entiries is defined) and (user_desktop_entiries | length > 0)
+  ansible.builtin.file:
+    src: "{{ home }}/.local/share/applications/hide"
+    dest: "{{ home }}/.local/share/applications/{{ item }}.desktop"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: link
+  loop: "{{ user_desktop_entiries }}"
+
 - name: Set {{ user_shell }} shell to {{ user }}
   when: user_shell is defined
   become: true

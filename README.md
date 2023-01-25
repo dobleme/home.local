@@ -17,7 +17,7 @@ $ ansible-galaxy install -r requirements.yml
 ```
 
 ## TODO
-- [ ] Disable some desktop entries
+- [x] Disable some desktop entries
 - [x] Install user fonts
 - [ ] Install JetBrains IDEs
 - [ ] Add GNOME extensions
