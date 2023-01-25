@@ -3,6 +3,6 @@
   when: sys_xterm is defined
   community.general.alternatives:
     name: x-terminal-emulator
-    path: /usr/bin/x-terminal-emulator
-    link: "{{ sys_xterm }}"
+    path: "{{ sys_xterm }}"
+    link: /usr/bin/x-terminal-emulator
     priority: 90
