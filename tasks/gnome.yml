@@ -1,8 +1,28 @@
 ---
+- name: Install GNOME extensions
+  include_tasks: "lib/install-gnome-extension.yml"
+  when: item.url is defined
+  loop: "{{ gnome_extensions }}"
+  vars:
+    owner: "{{ user }}"
+
+- name: Disable GNOME extensions
+  when: not item.enable | default(false)
+  ansible.builtin.command: gnome-extensions disable {{ item.name }}
+  register: res
+  failed_when: res.rc != 0 and res.rc != 2
+  loop: "{{ gnome_extensions }}"
+
+- name: Enable GNOME extensions
+  when: item.enable | default(false)
+  ansible.builtin.command: gnome-extensions enable {{ item.name }}
+  register: res
+  failed_when: res.rc != 0 and res.rc != 2
+  loop: "{{ gnome_extensions }}"
+
 - name: Load dconf
   community.general.dconf:
     key: "{{ item.key }}"
     value: "{{ item.value | string }}"
     state: present
-  loop: "{{ dconf }}"
-
+  loop: "{{ gnome_dconf }}"

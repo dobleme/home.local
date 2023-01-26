@@ -1,14 +1,4 @@
 ---
-- name: Check user is defined
-  when: user is undefined
-  ansible.builtin.set_fact:
-    user: "{{ ansible_facts.user_id }}"
-
-- name: Check home dir is defined
-  when: home is undefined
-  ansible.builtin.set_fact:
-    home: "/home/{{ user }}"
-
 - name: Create base user folders
   ansible.builtin.file:
     path: "{{ home }}/{{ item }}"
