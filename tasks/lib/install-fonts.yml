@@ -23,5 +23,5 @@
   register: res
 
 - name: Build font information caches
-  when: res.skipped == false
-  command: fc-cache --force --verbose {{ home }}/.fonts
+  when: not res.skipped
+  ansible.builtin.command: fc-cache --force --verbose {{ home }}/.fonts

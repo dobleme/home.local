@@ -7,13 +7,13 @@
   loop: "{{ user_folders }}"
 
 - name: Install user fonts
-  include_tasks: "lib/install-fonts.yml"
+  ansible.builtin.include_tasks: "lib/install-fonts.yml"
   vars:
     owner: "{{ user }}"
     fonts: "{{ user_fonts }}"
 
 - name: Install starship prompt
-  include_tasks: "lib/remote-install.yml"
+  ansible.builtin.include_tasks: "lib/remote-install.yml"
   vars:
     owner: "{{ user }}"
     pkg:
@@ -48,7 +48,12 @@
       ansible.builtin.copy:
         src: "{{ home }}/{{ user_dotfiles.dest }}/.rcrc"
         dest: "{{ home }}/.rcrc"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: 0664
+      register: res
     - name: Link the dotfiles
+      when: res.changed
       ansible.builtin.command:
         cmd: rcup -f -d "{{ home }}/{{ user_dotfiles.dest }}"
         chdir: "{{ home }}"
@@ -58,6 +63,7 @@
     dest: "{{ home }}/.local/share/applications/hide"
     owner: "{{ user }}"
     group: "{{ user }}"
+    mode: 0664
     content: |
       [Desktop Entry]
       NoDisplay=true
@@ -72,14 +78,14 @@
     state: link
   loop: "{{ user_desktop_entiries }}"
 
-- name: Set {{ user_shell }} shell to {{ user }}
+- name: Set shell {{ user_shell }}
   when: user_shell is defined
   become: true
   ansible.builtin.user:
     name: "{{ user }}"
     shell: "{{ user_shell }}"
 
-- name: Add {{ user }} to groups
+- name: Add groups to {{ user }}
   when: user_groups is defined
   become: true
   ansible.builtin.user:

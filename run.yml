@@ -1,6 +1,8 @@
 ---
 - hosts: all
 
+  name: Main playbook to run all the tasks
+
   vars_files:
     - config.yml
     - gnome.yml
@@ -19,20 +21,25 @@
       tags: ["always"]
 
   tasks:
-    - import_tasks: tasks/clean.yml
-      become: yes
+    - name: Clean unneded packages
+      ansible.builtin.import_tasks: tasks/clean.yml
+      become: true
       tags: ["never", "clean"]
 
-    - import_tasks: tasks/essentials.yml
-      become: yes
+    - name: Install essential packages
+      ansible.builtin.import_tasks: tasks/essentials.yml
+      become: true
       tags: ["essentials"]
 
-    - import_tasks: tasks/system.yml
-      become: yes
+    - name: Configure system
+      ansible.builtin.import_tasks: tasks/system.yml
+      become: true
       tags: ["system"]
 
-    - import_tasks: tasks/user.yml
+    - name: Configure user
+      ansible.builtin.import_tasks: tasks/user.yml
       tags: ["user"]
 
-    - import_tasks: tasks/gnome.yml
+    - name: Configure GNOME user
+      ansible.builtin.import_tasks: tasks/gnome.yml
       tags: ["user", "gnome"]

@@ -3,6 +3,9 @@
   ansible.builtin.get_url:
     url: "{{ item.url }}"
     dest: "/tmp/{{ item.name }}.zip"
+    group: "{{ owner }}"
+    owner: "{{ owner }}"
+    mode: 0664
 
 - name: Create GNOME extension directory
   ansible.builtin.file:
@@ -10,16 +13,18 @@
     state: directory
     group: "{{ owner }}"
     owner: "{{ owner }}"
+    mode: 0664
   register: res
 
-- name: Unzip GNOME extensions
-  when: res.changed
+- name: Unarchive GNOME extensions
   block:
-    - ansible.builtin.unarchive:
+    - name: Unarchive GNOME extensions
+      ansible.builtin.unarchive:
         src: "/tmp/{{ item.name }}.zip"
         dest: "{{ home }}/.local/share/gnome-shell/extensions/{{ item.name }}"
         group: "{{ owner }}"
         owner: "{{ owner }}"
         remote_src: true
-    - ansible.builtin.debug:
-        msg: Remember to restart gnome shell and rexecute the task to enable it
+    - name: Remeber restart GNOME Shell
+      ansible.builtin.debug:
+        msg: Remember to restart GNOME Shell and rexecute the task to enable it

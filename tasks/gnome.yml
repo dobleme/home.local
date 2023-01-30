@@ -1,6 +1,6 @@
 ---
 - name: Install GNOME extensions
-  include_tasks: "lib/install-gnome-extension.yml"
+  ansible.builtin.include_tasks: "lib/install-gnome-extension.yml"
   when: item.url is defined
   loop: "{{ gnome_extensions }}"
   vars:

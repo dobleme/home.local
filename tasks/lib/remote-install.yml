@@ -1,11 +1,11 @@
 ---
-- name: Ensure {{ pkg.name }} dir "{{ pkg.dest }}" exists
+- name: Ensure dir "{{ pkg.dest }}"
   ansible.builtin.file:
     path: "{{ pkg.dest }}"
     state: directory
     mode: '0755'
 
-- name: Download and unpack {{ pkg.name }} v{{pkg.version}}
+- name: Download and unpack {{ pkg.name }}
   when: pkg.tar_url is defined
   ansible.builtin.unarchive:
     src: "{{ pkg.tar_url | replace('<version>', pkg.version) }}"
@@ -15,16 +15,16 @@
     creates: "{{ pkg.creates | default(pkg.dest) }}"
     remote_src: true
 
-- name: Download bin {{ pkg.name }} v{{pkg.version}}
+- name: Download bin {{ pkg.name }}
   when: pkg.bin_url is defined
   ansible.builtin.get_url:
-    url: "{{ pkg.bin_url | replace('<version>', pkg.version)}}"
+    url: "{{ pkg.bin_url | replace('<version>', pkg.version) }}"
     dest: "{{ pkg.dest }}/{{ pkg.name }}"
     group: "{{ owner }}"
     owner: "{{ owner }}"
     mode: '0776'
 
-- name: Creating {{ pkg.name }} links
+- name: Creating links for {{ pkg.name }}
   when: (pkg.links is defined) and (pkg.links | length > 0)
   ansible.builtin.file:
     src: "{{ item.src }}"

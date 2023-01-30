@@ -1,5 +1,5 @@
 ---
-- name: Set {{ sys_xterm }} as terminal emulator 
+- name: Set terminal emulator {{ sys_xterm }}
   when: sys_xterm is defined
   community.general.alternatives:
     name: x-terminal-emulator
