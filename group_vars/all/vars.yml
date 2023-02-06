@@ -9,7 +9,7 @@ builtin_repositories : []
 alt_packages: []
 
 # SSH client configuration
-ssh_folder: []
+ssh_folders: []
 
 ssh_keys: []
 
