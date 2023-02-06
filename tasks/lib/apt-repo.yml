@@ -4,6 +4,9 @@
   ansible.builtin.get_url:
     url: "{{ repo.url }}"
     dest: /etc/apt/trusted.gpg.d/{{ repo.name }}.asc
+    owner: root
+    group: root
+    mode: 0664
 
 - name: Add apt repository
   ansible.builtin.apt_repository:

@@ -4,7 +4,7 @@ builtin_packages: [
   gnome-extensions-app, python3-pip, kitty, fzf
 ]
 
-builtin_repositories : []
+builtin_repositories: []
 
 alt_packages: []
 
@@ -56,7 +56,7 @@ user_folders:
 
 user_groups: []
 
-user_dotfiles: 
+user_dotfiles:
   repo: https://github.com/dobleme/dotfiles.git
   dest: dev/dotfiles
   ref: main

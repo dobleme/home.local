@@ -8,14 +8,14 @@
       when: user is undefined
       ansible.builtin.set_fact:
         user: "{{ ansible_facts.user_id }}"
-      tags: 
+      tags:
         - always
 
     - name: Check home dir is defined
       when: home is undefined
       ansible.builtin.set_fact:
         home: "/home/{{ user }}"
-      tags: 
+      tags:
         - always
 
     - name: Install require packages to work with this playbook
@@ -24,7 +24,7 @@
         name:
           - python3-apt
         state: present
-      tags: 
+      tags:
         - never
         - requirements
 
@@ -32,7 +32,7 @@
     - name: Install essential packages
       ansible.builtin.import_tasks: tasks/essentials.yml
       become: true
-      tags: 
+      tags:
         - never
         - essentials
 
@@ -61,12 +61,12 @@
 
     - name: Install and configure kitty xterm
       ansible.builtin.import_tasks: tasks/xterm.yml
-      tags: 
+      tags:
         - xterm
         - user
 
     # - name: Configure GNOME user
     #   ansible.builtin.import_tasks: tasks/gnome.yml
-    #   tags: 
+    #   tags:
     #     - gnome
     #     - user

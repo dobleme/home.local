@@ -4,7 +4,7 @@ builtin_packages: [
   gnome-extensions-app, python3-pip, kitty, fzf, vivaldi-stable
 ]
 
-builtin_repositories: 
+builtin_repositories:
   - name: vivaldi
     url: https://repo.vivaldi.com/archive/linux_signing_key.pub
     list: "deb [arch=amd64] https://repo.vivaldi.com/archive/deb/ stable main"
