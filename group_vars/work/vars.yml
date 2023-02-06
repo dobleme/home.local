@@ -1,7 +1,7 @@
 # Essential configuration
 builtin_packages: [
   make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, htop, iftop, git, tig, ranger, gnome-tweaks,
-  gnome-extensions-app, python3-pip, kitty, fzf, vivaldi-stable, php8.1, golang-go
+  gnome-extensions-app, python3-pip, kitty, fzf, vivaldi-stable, php8.1, golang-go, code
 ]
 
 builtin_repositories:
@@ -9,6 +9,9 @@ builtin_repositories:
   - name: vivaldi
     url: https://repo.vivaldi.com/archive/linux_signing_key.pub
     list: "deb [arch=amd64] https://repo.vivaldi.com/archive/deb/ stable main"
+  - name: vscode
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    list: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
 
 alt_packages:
   - spotify
@@ -44,3 +47,11 @@ user_desktop_entiries:
   - gnome-language-selector
   - org.gnome.PowerStats
   - info
+
+# VSCode
+vscode_extensions:
+  - rocketseat.theme-omni
+  - ms-python.python
+  - golang.Go
+  - tamasfe.even-better-toml
+  - redhat.vscode-yaml

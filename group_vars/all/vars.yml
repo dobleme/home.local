@@ -67,3 +67,6 @@ user_desktop_entiries: []
 pip_packages:
   - pytest
   - ansible-lint
+
+# VSCode
+vscode_extensions: []
