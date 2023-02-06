@@ -1,3 +1,4 @@
+# Essential configuration
 builtin_packages: [
   make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, htop, iftop, git, tig, ranger, gnome-tweaks,
   gnome-extensions-app, python3-pip, kitty, fzf, vivaldi-stable
@@ -15,6 +16,7 @@ alt_packages:
   - vlc
   - slack
 
+# SSH client configuration
 ssh_folders:
   - .ssh/work
   - .ssh/personal
