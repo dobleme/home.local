@@ -15,6 +15,15 @@ alt_packages:
   - vlc
   - slack
 
+ssh_folders:
+  - .ssh/work
+  - .ssh/personal
+
+ssh_keys:
+  - .ssh/work/git
+  - .ssh/personal/git
+  - .ssh/personal/lab
+
 user_groups:
   - docker
 

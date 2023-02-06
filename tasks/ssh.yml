@@ -1,0 +1,13 @@
+---
+- name: Ensure SSH key folders are created
+  ansible.builtin.file:
+    path: "{{ home }}/{{ item }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ ssh_folders }}"
+
+- name: Generate keypair SSH keys
+  community.crypto.openssh_keypair:
+    path: "{{ home }}/{{ item }}"
+    type: ed25519
+  loop: "{{ ssh_keys }}"
