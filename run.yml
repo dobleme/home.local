@@ -47,6 +47,12 @@
       tags:
         - user
 
+    - name: Install extra packages
+      ansible.builtin.import_tasks: tasks/extra-packages.yml
+      tags:
+        - extra
+        - user
+
     - name: Install and configure zsh shell
       ansible.builtin.import_tasks: tasks/shell.yml
       tags:

@@ -26,6 +26,12 @@ ssh_keys:
   - .ssh/personal/git
   - .ssh/personal/lab
 
+# User configuration
+user_folders:
+  - .config/me
+  - .themes
+  - dev/work
+
 user_groups:
   - docker
 

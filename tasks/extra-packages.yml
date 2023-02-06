@@ -1,0 +1,6 @@
+---
+- name: Install Pip packages.
+  ansible.builtin.pip:
+    name: "{{ pip_packages }}"
+    state: latest
+    extra_args: --user

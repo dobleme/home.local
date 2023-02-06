@@ -18,6 +18,7 @@ shell_bin: /usr/bin/zsh
 
 shell_folders:
   - .config/zsh/plugins
+  - .local/bin
 
 shell_plugins:
   - repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
@@ -50,9 +51,6 @@ xterm_fonts:
 # User configuration
 user_folders:
   - .config/me
-  - .local/bin
-  - .local/go
-  - .local/npm
   - .themes
   - dev
 
@@ -64,3 +62,8 @@ user_dotfiles:
   ref: main
 
 user_desktop_entiries: []
+
+# Extra packages
+pip_packages:
+  - pytest
+  - ansible-lint
