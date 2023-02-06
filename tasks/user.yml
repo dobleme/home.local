@@ -6,32 +6,6 @@
     mode: '0755'
   loop: "{{ user_folders }}"
 
-- name: Install user fonts
-  ansible.builtin.include_tasks: "lib/install-fonts.yml"
-  vars:
-    owner: "{{ user }}"
-    fonts: "{{ user_fonts }}"
-
-- name: Install starship prompt
-  ansible.builtin.include_tasks: "lib/remote-install.yml"
-  vars:
-    owner: "{{ user }}"
-    pkg:
-      name: starship
-      tar_url: https://github.com/starship/starship/releases/download/v<version>/starship-x86_64-unknown-linux-gnu.tar.gz
-      version: 1.12.0
-      dest: "{{ home }}/.local/bin"
-      creates: "{{ home }}/.local/bin/starship"
-
-- name: Install shell plugins
-  when: user_shell_plugins is defined
-  ansible.builtin.git:
-    repo: "{{ item.repo }}"
-    dest: "{{ home }}/{{ item.dest }}"
-    version: "{{ item.version }}"
-    clone: true
-  loop: "{{ user_shell_plugins }}"
-
 - name: Clone/Pull dotfiles
   when: user_dotfiles is defined
   ansible.builtin.git:
@@ -77,13 +51,6 @@
     group: "{{ user }}"
     state: link
   loop: "{{ user_desktop_entiries }}"
-
-- name: Set shell {{ user_shell }}
-  when: user_shell is defined
-  become: true
-  ansible.builtin.user:
-    name: "{{ user }}"
-    shell: "{{ user_shell }}"
 
 - name: Add groups to {{ user }}
   when: user_groups is defined

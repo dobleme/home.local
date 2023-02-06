@@ -1,0 +1,26 @@
+---
+- name: Add dnf repositories
+  ansible.builtin.include_tasks: "lib/dnf-repo.yml"
+  loop: "{{ builtin_repositories }}"
+  loop_control:
+    loop_var: repo
+
+- name: Autoremove packages
+  ansible.builtin.dnf:
+    autoremove: true
+
+- name: Update pacakges to latest version
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
+
+- name: Install essential packages
+  ansible.builtin.package:
+    name: "{{ builtin_packages }}"
+    state: latest
+
+- name: Install flatpak packages
+  community.general.flatpak:
+    name: "{{ alt_packages }}"
+    state: present
+    remote: flathub

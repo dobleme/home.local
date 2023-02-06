@@ -1,0 +1,61 @@
+# Essential configuration
+builtin_packages: [
+  make, gcc, g++, curl, unzip, tar, zsh, rcm, vim, htop, iftop, git, tig, ranger, gnome-tweaks,
+  gnome-extensions-app, python3-pip, kitty, fzf
+]
+
+builtin_repositories : []
+
+alt_packages: []
+
+# Shell configuration
+shell_bin: /usr/bin/zsh
+
+shell_folders:
+  - .config/zsh/plugins
+
+shell_plugins:
+  - repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    version: 0.7.1
+    dest: .config/zsh/plugins/zsh-syntax-highlighting
+
+# Xterm configuration
+xterm_bin: /usr/bin/kitty
+
+xterm_folders:
+  - .fonts
+
+xterm_fonts:
+  - url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.0/CascadiaCode.zip
+    dir: CascadiaCode
+    fonts:
+      - 'Caskaydia Cove Nerd Font Complete Mono Bold Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono Bold.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono ExtraLight Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono ExtraLight.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono Light Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono Light.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono Regular.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono SemiBold Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono SemiBold.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono SemiLight Italic.otf'
+      - 'Caskaydia Cove Nerd Font Complete Mono SemiLight.otf'
+
+# User configuration
+user_folders:
+  - .config/me
+  - .local/bin
+  - .local/go
+  - .local/npm
+  - .themes
+  - dev
+
+user_groups: []
+
+user_dotfiles: 
+  repo: https://github.com/dobleme/dotfiles.git
+  dest: dev/dotfiles
+  ref: main
+
+user_desktop_entiries: []

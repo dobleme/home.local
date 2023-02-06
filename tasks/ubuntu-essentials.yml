@@ -1,0 +1,32 @@
+---
+- name: Add apt repositories
+  ansible.builtin.include_tasks: "lib/apt-repo.yml"
+  loop: "{{ builtin_repositories }}"
+  loop_control:
+    loop_var: repo
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+
+- name: Autoremove packages
+  ansible.builtin.apt:
+    autoremove: true
+
+- name: Update apt pacakges to latest version
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
+
+- name: Install essential packages
+  ansible.builtin.apt:
+    name: "{{ builtin_packages }}"
+    state: latest
+    install_recommends: false
+
+- name: Install snap packages
+  community.general.snap:
+    name: "{{ alt_packages }}"
+    state: present
+    channel: stable
+    classic: true

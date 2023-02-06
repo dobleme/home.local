@@ -1,8 +1,0 @@
----
-- name: Set terminal emulator {{ sys_xterm }}
-  when: sys_xterm is defined
-  community.general.alternatives:
-    name: x-terminal-emulator
-    path: "{{ sys_xterm }}"
-    link: /usr/bin/x-terminal-emulator
-    priority: 90

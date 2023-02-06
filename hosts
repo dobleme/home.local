@@ -1,2 +1,5 @@
-[all]
-localhost ansible_connection=local
+[personal]
+rigatoni ansible_connection=local
+
+[work]
+LAT-6JWZSG3 ansible_connection=local

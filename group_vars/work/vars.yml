@@ -1,0 +1,27 @@
+builtin_packages: [
+  make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, htop, iftop, git, tig, ranger, gnome-tweaks,
+  gnome-extensions-app, python3-pip, kitty, fzf, vivaldi-stable
+]
+
+builtin_repositories: 
+  - name: vivaldi
+    url: https://repo.vivaldi.com/archive/linux_signing_key.pub
+    list: "deb [arch=amd64] https://repo.vivaldi.com/archive/deb/ stable main"
+
+alt_packages:
+  - spotify
+  - telegram-desktop
+  - bitwarden
+  - vlc
+  - slack
+
+user_groups:
+  - docker
+
+user_desktop_entiries:
+  - htop
+  - ranger
+  - vim
+  - gnome-language-selector
+  - org.gnome.PowerStats
+  - info

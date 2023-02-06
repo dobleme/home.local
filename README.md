@@ -3,10 +3,11 @@
 This is my ad hoc playbook to setup a local machine. As you can see is not using
 roles nor trying to generalize anything, just a bunch of very specific tasks.
 
-Just tested with `Fedora Workstation 37`.
+It can be used with:
+    - Fedora Workstation `37`
+    - Ubuntu `22.04`
 
 ## Requirements
-
 - git
 - python 3
 - ansible
@@ -24,3 +25,4 @@ $ ansible-galaxy install -r requirements.yml
 - [ ] Add VSCode settings/extensions
 - [ ] Install GTK themes/icons
 - [ ] Generate and link ssh config/keys
+- [ ] Split tasks by application (term, xterm, vscode, ...)

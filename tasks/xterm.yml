@@ -1,0 +1,28 @@
+---
+- name: Install xterm essential packages
+  ansible.builtin.package:
+    name:
+      - kitty
+    state: latest
+
+- name: Ensure base xterm folders are created
+  ansible.builtin.file:
+    path: "{{ home }}/{{ item }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ xterm_folders }}"
+
+- name: Install xterm fonts
+  ansible.builtin.include_tasks: "lib/install-fonts.yml"
+  vars:
+    owner: "{{ user }}"
+    fonts: "{{ xterm_fonts }}"
+
+- name: Set terminal emulator "{{ xterm_bin }}"
+  when: xterm_bin is defined
+  become: true
+  community.general.alternatives:
+    name: x-terminal-emulator
+    path: "{{ xterm_bin }}"
+    link: /usr/bin/x-terminal-emulator
+    priority: 90

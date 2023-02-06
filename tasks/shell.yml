@@ -1,0 +1,41 @@
+---
+- name: Install shell essential packages
+  ansible.builtin.package:
+    name:
+      - zsh
+      - fzf
+    state: latest
+
+- name: Set shell "{{ shell_bin }}"
+  when: shell_bin is defined
+  become: true
+  ansible.builtin.user:
+    name: "{{ user }}"
+    shell: "{{ shell_bin }}"
+
+- name: Ensure base shell folders are created
+  ansible.builtin.file:
+    path: "{{ home }}/{{ item }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ shell_folders }}"
+
+- name: Install shell plugins
+  when: shell_plugins is defined
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "{{ home }}/{{ item.dest }}"
+    version: "{{ item.version }}"
+    clone: true
+  loop: "{{ shell_plugins }}"
+
+- name: Install starship prompt
+  ansible.builtin.include_tasks: "lib/remote-install.yml"
+  vars:
+    owner: "{{ user }}"
+    pkg:
+      name: starship
+      tar_url: https://github.com/starship/starship/releases/download/v<version>/starship-x86_64-unknown-linux-gnu.tar.gz
+      version: 1.12.0
+      dest: "{{ home }}/.local/bin"
+      creates: "{{ home }}/.local/bin/starship"

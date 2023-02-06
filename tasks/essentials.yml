@@ -1,37 +1,8 @@
 ---
-# dnf
-- name: Add dnf repositories
-  ansible.builtin.include_tasks: "lib/dnf-repo.yml"
-  loop: "{{ dnf_repositories }}"
-  loop_control:
-    loop_var: repo
+- name: Ubuntu essentials
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_major_version == '22'
+  ansible.builtin.include_tasks: "ubuntu-essentials.yml"
 
-- name: Autoremove unneeded packages installed as dependencies
-  ansible.builtin.dnf:
-    autoremove: true
-
-- name: Install dnf essential packages
-  ansible.builtin.dnf:
-    name: "{{ dnf_packages }}"
-    state: present
-
-- name: Upgrade all packages
-  ansible.builtin.dnf:
-    name: '*'
-    state: present
-
-# flatpak
-- name: Add flatpak remotes
-  community.general.flatpak_remote:
-    name: "{{ item.repo }}"
-    state: present
-    flatpakrepo_url: "{{ item.url }}"
-    method: system
-  loop: "{{ flatpak_remotes }}"
-
-- name: Install flatpak packages
-  community.general.flatpak:
-    name: "{{ item.name | default(item) }}"
-    state: present
-    remote: "{{ item.remote | default('flathub') }}"
-  loop: "{{ flatpak_packages }}"
+- name: Fedora essentials
+  when: ansible_distribution == 'Fedora' and ansible_distribution_major_version == '37'
+  ansible.builtin.include_tasks: "fedora-essentials.yml"

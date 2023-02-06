@@ -3,43 +3,58 @@
 
   name: Main playbook to run all the tasks
 
-  vars_files:
-    - config.yml
-    - gnome.yml
-
   pre_tasks:
     - name: Check user is defined
       when: user is undefined
       ansible.builtin.set_fact:
         user: "{{ ansible_facts.user_id }}"
-      tags: ["always"]
+      tags: 
+        - always
 
     - name: Check home dir is defined
       when: home is undefined
       ansible.builtin.set_fact:
         home: "/home/{{ user }}"
-      tags: ["always"]
+      tags: 
+        - always
+
+    - name: Install require packages to work with this playbook
+      become: true
+      ansible.builtin.package:
+        name:
+          - python3-apt
+        state: present
+      tags: 
+        - never
+        - requirements
 
   tasks:
-    - name: Clean unneded packages
-      ansible.builtin.import_tasks: tasks/clean.yml
-      become: true
-      tags: ["never", "clean"]
-
     - name: Install essential packages
       ansible.builtin.import_tasks: tasks/essentials.yml
       become: true
-      tags: ["essentials"]
-
-    - name: Configure system
-      ansible.builtin.import_tasks: tasks/system.yml
-      become: true
-      tags: ["system"]
+      tags: 
+        - never
+        - essentials
 
     - name: Configure user
       ansible.builtin.import_tasks: tasks/user.yml
-      tags: ["user"]
+      tags:
+        - user
 
-    - name: Configure GNOME user
-      ansible.builtin.import_tasks: tasks/gnome.yml
-      tags: ["user", "gnome"]
+    - name: Install and configure zsh shell
+      ansible.builtin.import_tasks: tasks/shell.yml
+      tags:
+        - shell
+        - user
+
+    - name: Install and configure kitty xterm
+      ansible.builtin.import_tasks: tasks/xterm.yml
+      tags: 
+        - xterm
+        - user
+
+    # - name: Configure GNOME user
+    #   ansible.builtin.import_tasks: tasks/gnome.yml
+    #   tags: 
+    #     - gnome
+    #     - user

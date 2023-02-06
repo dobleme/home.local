@@ -1,0 +1,12 @@
+---
+- name: Add apt repository sign key
+  when: repo.url is defined
+  ansible.builtin.get_url:
+    url: "{{ repo.url }}"
+    dest: /etc/apt/trusted.gpg.d/{{ repo.name }}.asc
+
+- name: Add apt repository
+  ansible.builtin.apt_repository:
+    repo: "{{ repo.list | default(repo) }}"
+    state: present
+    install_python_apt: true
