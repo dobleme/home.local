@@ -1,10 +1,11 @@
 # Essential configuration
 builtin_packages: [
   make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, htop, iftop, git, tig, ranger, gnome-tweaks,
-  gnome-extensions-app, python3-pip, kitty, fzf, vivaldi-stable
+  gnome-extensions-app, python3-pip, kitty, fzf, vivaldi-stable, php8.1, golang-go
 ]
 
 builtin_repositories:
+  - 'ppa:ondrej/php'
   - name: vivaldi
     url: https://repo.vivaldi.com/archive/linux_signing_key.pub
     list: "deb [arch=amd64] https://repo.vivaldi.com/archive/deb/ stable main"
@@ -29,6 +30,7 @@ ssh_keys:
 # User configuration
 user_folders:
   - .config/me
+  - .local/go
   - .themes
   - dev/work
 

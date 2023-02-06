@@ -12,4 +12,3 @@
   ansible.builtin.apt_repository:
     repo: "{{ repo.list | default(repo) }}"
     state: present
-    install_python_apt: true
