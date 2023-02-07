@@ -39,3 +39,14 @@
       version: 1.12.0
       dest: "{{ home }}/.local/bin"
       creates: "{{ home }}/.local/bin/starship"
+
+- name: Install fzf
+  ansible.builtin.include_tasks: "lib/remote-install.yml"
+  vars:
+    owner: "{{ user }}"
+    pkg:
+      name: fzf
+      tar_url: https://github.com/junegunn/fzf/releases/download/<version>/fzf-<version>-linux_amd64.tar.gz
+      version: 0.37.0
+      dest: "{{ home }}/.local/bin"
+      creates: "{{ home }}/.local/bin/fzf"

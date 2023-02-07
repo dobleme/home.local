@@ -24,6 +24,9 @@ shell_plugins:
   - repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
     version: 0.7.1
     dest: .config/zsh/plugins/zsh-syntax-highlighting
+  - repo: https://github.com/junegunn/fzf.git
+    version: 0.37.0
+    dest: .config/zsh/plugins/fzf
 
 # Xterm configuration
 xterm_bin: /usr/bin/kitty
