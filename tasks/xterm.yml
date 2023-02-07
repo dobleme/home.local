@@ -1,9 +1,9 @@
 ---
-- name: Install xterm essential packages
+- name: Check xterm essential packages are installed
   ansible.builtin.package:
-    name:
-      - kitty
-    state: latest
+    name: kitty
+    state: present
+  check_mode: true
 
 - name: Ensure base xterm folders are created
   ansible.builtin.file:

@@ -4,29 +4,26 @@
   name: Main playbook to run all the tasks
 
   pre_tasks:
+    - name: Check required packages to run this playbook
+      ansible.builtin.package:
+        name:
+          - python3-apt
+          - python3-psutil
+        state: present
+      check_mode: true
+      tags: always
+
     - name: Check user is defined
       when: user is undefined
       ansible.builtin.set_fact:
         user: "{{ ansible_facts.user_id }}"
-      tags:
-        - always
+      tags: always
 
     - name: Check home dir is defined
       when: home is undefined
       ansible.builtin.set_fact:
         home: "/home/{{ user }}"
-      tags:
-        - always
-
-    - name: Install require packages to work with this playbook
-      become: true
-      ansible.builtin.package:
-        name:
-          - python3-apt
-        state: present
-      tags:
-        - never
-        - requirements
+      tags: always
 
   tasks:
     - name: Install essential packages

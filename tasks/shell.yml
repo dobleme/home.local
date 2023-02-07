@@ -1,10 +1,9 @@
 ---
-- name: Install shell essential packages
+- name: Check shell essential packages are installed
   ansible.builtin.package:
-    name:
-      - zsh
-      - fzf
-    state: latest
+    name: zsh
+    state: present
+  check_mode: true
 
 - name: Set shell "{{ shell_bin }}"
   when: shell_bin is defined
