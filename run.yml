@@ -35,38 +35,27 @@
 
     - name: Configure ssh client
       ansible.builtin.import_tasks: tasks/ssh.yml
-      tags:
-        - never
-        - ssh
+      tags: ssh
 
     - name: Install and configure VSCode
       ansible.builtin.import_tasks: tasks/vscode.yml
-      tags:
-        - never
-        - vscode
+      tags: vscode
 
     - name: Configure user
       ansible.builtin.import_tasks: tasks/user.yml
-      tags:
-        - user
+      tags: user
 
     - name: Install extra packages
       ansible.builtin.import_tasks: tasks/extra-packages.yml
-      tags:
-        - extra
-        - user
+      tags: extra
 
     - name: Install and configure zsh shell
       ansible.builtin.import_tasks: tasks/shell.yml
-      tags:
-        - shell
-        - user
+      tags: shell
 
     - name: Install and configure kitty xterm
       ansible.builtin.import_tasks: tasks/xterm.yml
-      tags:
-        - xterm
-        - user
+      tags: xterm
 
     # - name: Configure GNOME user
     #   ansible.builtin.import_tasks: tasks/gnome.yml
