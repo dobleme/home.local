@@ -12,3 +12,6 @@ gnome_extensions:
   - name: hide-activities-button@nmingori.gnome-shell-extensions.org
     url: https://extensions.gnome.org/download-extension/hide-activities-button@nmingori.gnome-shell-extensions.org.shell-extension.zip?version_tag=25076
     enable: true
+  - name: blur-my-shell@aunetx
+    url: https://extensions.gnome.org/download-extension/blur-my-shell@aunetx.shell-extension.zip?version_tag=35047
+    enable: true
