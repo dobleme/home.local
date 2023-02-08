@@ -1,0 +1,14 @@
+gnome_extensions:
+  - name: ubuntu-appindicators@ubuntu.com
+    enable: false
+  - name: ubuntu-dock@ubuntu.com
+    enable: false
+  - name: caffeine@patapon.info
+    url: https://extensions.gnome.org/download-extension/caffeine@patapon.info.shell-extension.zip?version_tag=35373
+    enable: true
+  - name: user-theme@gnome-shell-extensions.gcampax.github.com
+    url: https://extensions.gnome.org/download-extension/user-theme@gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=29921
+    enable: true
+  - name: hide-activities-button@nmingori.gnome-shell-extensions.org
+    url: https://extensions.gnome.org/download-extension/hide-activities-button@nmingori.gnome-shell-extensions.org.shell-extension.zip?version_tag=25076
+    enable: true

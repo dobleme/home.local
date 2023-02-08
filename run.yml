@@ -57,8 +57,6 @@
       ansible.builtin.import_tasks: tasks/xterm.yml
       tags: xterm
 
-    # - name: Configure GNOME user
-    #   ansible.builtin.import_tasks: tasks/gnome.yml
-    #   tags:
-    #     - gnome
-    #     - user
+    - name: Configure GNOME user
+      ansible.builtin.import_tasks: tasks/gnome.yml
+      tags: gnome

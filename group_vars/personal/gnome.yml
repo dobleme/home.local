@@ -1,0 +1,17 @@
+gnome_extensions:
+  - name: apps-menu@gnome-shell-extensions.gcampax.github.com
+    enable: false
+  - name: background-logo@fedorahosted.org
+    enable: false
+  - name: launch-new-instance@gnome-shell-extensions.gcampax.github.com
+    enable: false
+  - name: places-menu@gnome-shell-extensions.gcampax.github.com
+    enable: false
+  - name: window-list@gnome-shell-extensions.gcampax.github.com
+    enable: false
+  - name: caffeine@patapon.info
+    enable: true
+    url: https://extensions.gnome.org/download-extension/caffeine@patapon.info.shell-extension.zip?version_tag=35373
+  - name: user-theme@gnome-shell-extensions.gcampax.github.com
+    enable: true
+    url: https://extensions.gnome.org/download-extension/user-theme@gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=34566

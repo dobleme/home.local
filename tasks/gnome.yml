@@ -20,9 +20,9 @@
   failed_when: res.rc != 0 and res.rc != 2
   loop: "{{ gnome_extensions }}"
 
-- name: Load dconf
-  community.general.dconf:
-    key: "{{ item.key }}"
-    value: "{{ item.value | string }}"
-    state: present
-  loop: "{{ gnome_dconf }}"
+# - name: Load dconf
+#   community.general.dconf:
+#     key: "{{ item.key }}"
+#     value: "{{ item.value | string }}"
+#     state: present
+#   loop: "{{ gnome_dconf }}"

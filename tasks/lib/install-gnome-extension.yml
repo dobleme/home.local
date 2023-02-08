@@ -13,7 +13,7 @@
     state: directory
     group: "{{ owner }}"
     owner: "{{ owner }}"
-    mode: 0664
+    mode: 0755
   register: res
 
 - name: Unarchive GNOME extensions
