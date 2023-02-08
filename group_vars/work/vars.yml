@@ -19,6 +19,7 @@ alt_packages:
   - bitwarden
   - vlc
   - slack
+  - marktext
 
 # SSH client configuration
 ssh_folders:
