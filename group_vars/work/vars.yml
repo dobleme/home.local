@@ -1,7 +1,7 @@
 # Essential configuration
 builtin_packages: [
-  make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, htop, iftop, git, tig, ranger, gnome-tweaks,
-  gnome-extensions-app, python3-pip, kitty, vivaldi-stable, php8.1, golang-go, code
+  make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, htop, iftop, git, tig, ranger, nala, bat,
+  gnome-tweaks, gnome-extensions-app, python3-pip, kitty, vivaldi-stable, php8.1, golang-go, code
 ]
 
 builtin_repositories:
