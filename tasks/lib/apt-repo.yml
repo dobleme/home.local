@@ -12,3 +12,4 @@
   ansible.builtin.apt_repository:
     repo: "{{ repo.list | default(repo) }}"
     state: present
+    filename: "{{ repo.name | default(omit) }}"
