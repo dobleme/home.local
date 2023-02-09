@@ -1,7 +1,8 @@
 # Essential configuration
 builtin_packages: [
   make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, htop, iftop, git, tig, ranger, nala, bat,
-  gnome-tweaks, gnome-extensions-app, python3-pip, kitty, vivaldi-stable, php8.1, golang-go, code, google-cloud-cli
+  gnome-tweaks, gnome-extensions-app, python3-pip, kitty, vivaldi-stable, php8.1, golang-go, code, google-cloud-cli,
+  kubectl, google-cloud-sdk-gke-gcloud-auth-plugin
 ]
 
 builtin_repositories:
@@ -16,6 +17,10 @@ builtin_repositories:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     list: "deb [signed-by=/usr/share/keyrings/gcloud.gpg] https://packages.cloud.google.com/apt cloud-sdk main"
     key_dest: /usr/share/keyrings/gcloud.gpg
+  - name: k8s
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    list: "deb [signed-by=/usr/share/keyrings/k8s.gpg] https://apt.kubernetes.io/ kubernetes-xenial main"
+    key_dest: /usr/share/keyrings/k8s.gpg
 
 alt_packages:
   - spotify
