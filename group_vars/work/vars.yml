@@ -62,7 +62,8 @@ user_desktop_entiries:
 
 # Extra packages
 npm_packages:
-  - mdx-deck
+  - '@slidev/cli'
+  - '@slidev/theme-default'
 
 # VSCode
 vscode_extensions:
