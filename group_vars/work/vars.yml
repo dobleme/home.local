@@ -1,7 +1,7 @@
 # Essential configuration
 builtin_packages: [
   make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, htop, iftop, git, tig, ranger, nala, bat,
-  gnome-tweaks, gnome-extensions-app, python3-pip, kitty, vivaldi-stable, php8.1, golang-go, code
+  gnome-tweaks, gnome-extensions-app, python3-pip, kitty, vivaldi-stable, php8.1, golang-go, code, google-cloud-cli
 ]
 
 builtin_repositories:
@@ -12,6 +12,10 @@ builtin_repositories:
   - name: vscode
     url: https://packages.microsoft.com/keys/microsoft.asc
     list: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
+  - name: gcloud
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    list: "deb [signed-by=/usr/share/keyrings/gcloud.gpg] https://packages.cloud.google.com/apt cloud-sdk main"
+    key_dest: /usr/share/keyrings/gcloud.gpg
 
 alt_packages:
   - spotify
