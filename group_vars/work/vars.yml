@@ -45,6 +45,7 @@ ssh_keys:
 user_folders:
   - .config/me
   - .local/go
+  - .local/npm
   - .themes
   - dev/work
 
@@ -58,6 +59,10 @@ user_desktop_entiries:
   - gnome-language-selector
   - org.gnome.PowerStats
   - info
+
+# Extra packages
+npm_packages:
+  - mdx-deck
 
 # VSCode
 vscode_extensions:

@@ -4,3 +4,10 @@
     name: "{{ pip_packages }}"
     state: latest
     extra_args: --user
+
+- name: Install NPM packages.
+  community.general.npm:
+    name: "{{ item }}"
+    state: latest
+    global: true
+  loop: "{{ npm_packages }}"

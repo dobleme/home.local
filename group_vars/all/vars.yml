@@ -71,6 +71,8 @@ pip_packages:
   - pytest
   - ansible-lint
 
+npm_packages: []
+
 # VSCode
 vscode_extensions: []
 
