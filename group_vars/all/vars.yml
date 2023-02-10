@@ -75,6 +75,10 @@ npm_packages: []
 
 go_packages:
   - golang.org/x/tools/gopls@latest
+  - github.com/rogpeppe/godef@v1.1.2
+  - github.com/ramya-rao-a/go-outline@v0.0.0-20210608161538-9736a4bde949
+  - github.com/go-delve/delve/cmd/dlv@latest
+  - honnef.co/go/tools/cmd/staticcheck@2022.1.2
 
 # VSCode
 vscode_extensions: []
