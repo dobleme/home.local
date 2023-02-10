@@ -1,11 +1,11 @@
 ---
-- name: Install Pip packages.
+- name: Install Pip packages
   ansible.builtin.pip:
     name: "{{ pip_packages }}"
     state: latest
     extra_args: --user
 
-- name: Install NPM packages.
+- name: Install NPM packages
   community.general.npm:
     name: "{{ item }}"
     state: latest
