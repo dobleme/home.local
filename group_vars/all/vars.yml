@@ -73,6 +73,9 @@ pip_packages:
 
 npm_packages: []
 
+go_packages:
+  - golang.org/x/tools/gopls@latest
+
 # VSCode
 vscode_extensions: []
 
