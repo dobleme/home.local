@@ -40,16 +40,10 @@ xterm_fonts:
     fonts:
       - 'Caskaydia Cove Nerd Font Complete Mono Bold Italic.otf'
       - 'Caskaydia Cove Nerd Font Complete Mono Bold.otf'
-      - 'Caskaydia Cove Nerd Font Complete Mono ExtraLight Italic.otf'
-      - 'Caskaydia Cove Nerd Font Complete Mono ExtraLight.otf'
       - 'Caskaydia Cove Nerd Font Complete Mono Italic.otf'
-      - 'Caskaydia Cove Nerd Font Complete Mono Light Italic.otf'
-      - 'Caskaydia Cove Nerd Font Complete Mono Light.otf'
       - 'Caskaydia Cove Nerd Font Complete Mono Regular.otf'
       - 'Caskaydia Cove Nerd Font Complete Mono SemiBold Italic.otf'
       - 'Caskaydia Cove Nerd Font Complete Mono SemiBold.otf'
-      - 'Caskaydia Cove Nerd Font Complete Mono SemiLight Italic.otf'
-      - 'Caskaydia Cove Nerd Font Complete Mono SemiLight.otf'
 
 # User configuration
 user_folders:
