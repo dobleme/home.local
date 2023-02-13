@@ -78,22 +78,16 @@ go_packages:
 vscode_extensions: []
 
 vscode_fonts:
-  - url: https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
+  - url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip
     dir: JetBrainsMono
     fonts:
-      - 'fonts/ttf/JetBrainsMono-BoldItalic.ttf'
-      - 'fonts/ttf/JetBrainsMono-Bold.ttf'
-      - 'fonts/ttf/JetBrainsMono-ExtraBoldItalic.ttf'
-      - 'fonts/ttf/JetBrainsMono-ExtraBold.ttf'
-      - 'fonts/ttf/JetBrainsMono-ExtraLightItalic.ttf'
-      - 'fonts/ttf/JetBrainsMono-ExtraLight.ttf'
-      - 'fonts/ttf/JetBrainsMono-Italic.ttf'
-      - 'fonts/ttf/JetBrainsMono-LightItalic.ttf'
-      - 'fonts/ttf/JetBrainsMono-Light.ttf'
-      - 'fonts/ttf/JetBrainsMono-MediumItalic.ttf'
-      - 'fonts/ttf/JetBrainsMono-Medium.ttf'
-      - 'fonts/ttf/JetBrainsMono-Regular.ttf'
-      - 'fonts/ttf/JetBrainsMono-SemiBoldItalic.ttf'
-      - 'fonts/ttf/JetBrainsMono-SemiBold.ttf'
-      - 'fonts/ttf/JetBrainsMono-ThinItalic.ttf'
-      - 'fonts/ttf/JetBrainsMono-Thin.ttf'
+      - 'JetBrains Mono Bold Italic Nerd Font Complete Mono.ttf'
+      - 'JetBrains Mono Bold Nerd Font Complete Mono.ttf'
+      - 'JetBrains Mono Italic Nerd Font Complete Mono.ttf'
+      - 'JetBrains Mono Light Italic Nerd Font Complete Mono.ttf'
+      - 'JetBrains Mono Light Nerd Font Complete Mono.ttf'
+      - 'JetBrains Mono Medium Italic Nerd Font Complete Mono.ttf'
+      - 'JetBrains Mono Medium Nerd Font Complete Mono.ttf'
+      - 'JetBrains Mono Regular Nerd Font Complete Mono.ttf'
+      - 'JetBrains Mono SemiBold Italic Nerd Font Complete Mono.ttf'
+      - 'JetBrains Mono SemiBold Nerd Font Complete Mono.ttf'
