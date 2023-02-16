@@ -1,7 +1,7 @@
 # Essential configuration
 builtin_packages: [
   make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, btop, iftop, git, tig, ranger, nala, bat,
-  gnome-tweaks, gnome-extensions-app, python3-pip, kitty, vivaldi-stable, php8.1, golang-go, code, google-cloud-cli,
+  gnome-tweaks, gnome-extensions-app, python3-pip, python3.10-venv, kitty, vivaldi-stable, php8.1, golang-go, code, google-cloud-cli,
   kubectl, google-cloud-sdk-gke-gcloud-auth-plugin, nodejs
 ]
 
@@ -61,6 +61,11 @@ user_desktop_entiries:
   - info
 
 # Extra packages
+pip_packages:
+  - pytest
+  - ansible-lint
+  - pipenv
+
 npm_packages:
   - '@slidev/cli'
   - '@slidev/theme-default'
