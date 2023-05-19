@@ -1,7 +1,7 @@
 # Essential configuration
 builtin_packages: [
   make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, btop, iftop, git, tig, ranger, nala, bat,
-  gnome-tweaks, gnome-extensions-app, python3-pip, python3.10-venv, kitty, vivaldi-stable, php8.1, golang-go, code, google-cloud-cli,
+  gnome-tweaks, gnome-extensions-app, python3-pip, python3.10-venv, kitty, vivaldi-stable, php8.1, golang-go, google-cloud-cli,
   kubectl, google-cloud-sdk-gke-gcloud-auth-plugin, nodejs, neovim, xclip
 ]
 
@@ -11,9 +11,6 @@ builtin_repositories:
   - name: vivaldi
     url: https://repo.vivaldi.com/archive/linux_signing_key.pub
     list: "deb [arch=amd64] https://repo.vivaldi.com/archive/deb/ stable main"
-  - name: vscode
-    url: https://packages.microsoft.com/keys/microsoft.asc
-    list: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
   - name: gcloud
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     list: "deb [signed-by=/usr/share/keyrings/gcloud.gpg] https://packages.cloud.google.com/apt cloud-sdk main"
@@ -69,11 +66,3 @@ pip_packages:
 npm_packages:
   - '@slidev/cli'
   - '@slidev/theme-default'
-
-# VSCode
-vscode_extensions:
-  - rocketseat.theme-omni
-  - ms-python.python
-  - golang.Go
-  - tamasfe.even-better-toml
-  - redhat.vscode-yaml

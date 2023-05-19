@@ -1,7 +1,7 @@
 builtin_packages: [ # virtualbox
   make, gcc, g++, curl, unzip, tar, zsh, rcm, the_silver_searcher, vim, htop, iftop, git, tig, ranger, gnome-tweaks,
   gnome-extensions-app, python3-pip, nodejs, docker-ce, docker-ce-cli, containerd.io,
-  docker-compose-plugin, vagrant, code, golang, kitty, fzf, vivaldi-stable
+  docker-compose-plugin, vagrant, golang, kitty, fzf, vivaldi-stable
 ]
 
 builtin_repositories:
@@ -9,8 +9,6 @@ builtin_repositories:
     url: https://download.docker.com/linux/fedora/docker-ce.repo
   - name: vivaldi-fedora
     url: https://repo.vivaldi.com/archive/vivaldi-fedora.repo
-  - name: vscode
-    path: "{{ playbook_dir }}/repos/vscode.repo"
   # - repo: virtualbox # Does not have release 37 # virtualbox
   #   url: https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
 

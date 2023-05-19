@@ -22,9 +22,7 @@ $ ansible-galaxy install -r requirements.yml
 ## TODO
 - [x] Disable some desktop entries
 - [x] Install user fonts
-- [ ] Install JetBrains IDEs
 - [x] Add GNOME extensions
-- [ ] Add VSCode settings/extensions
 - [ ] Install GTK themes/icons
 - [x] Generate and link ssh config/keys
-- [x] Split tasks by application (term, xterm, vscode, ...)
+- [x] Split tasks by application (term, xterm, ...)
