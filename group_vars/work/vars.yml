@@ -26,7 +26,6 @@ builtin_repositories:
 
 alt_packages:
   - spotify
-  - telegram-desktop
   - bitwarden
   - vlc
   - slack
