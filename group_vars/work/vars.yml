@@ -2,11 +2,12 @@
 builtin_packages: [
   make, gcc, g++, curl, unzip, tar, zsh, rcm, silversearcher-ag, vim, btop, iftop, git, tig, ranger, nala, bat,
   gnome-tweaks, gnome-extensions-app, python3-pip, python3.10-venv, kitty, vivaldi-stable, php8.1, golang-go, code, google-cloud-cli,
-  kubectl, google-cloud-sdk-gke-gcloud-auth-plugin, nodejs
+  kubectl, google-cloud-sdk-gke-gcloud-auth-plugin, nodejs, neovim, xclip
 ]
 
 builtin_repositories:
   - 'ppa:ondrej/php'
+  - 'ppa:neovim-ppa/unstable'
   - name: vivaldi
     url: https://repo.vivaldi.com/archive/linux_signing_key.pub
     list: "deb [arch=amd64] https://repo.vivaldi.com/archive/deb/ stable main"
