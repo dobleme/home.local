@@ -26,3 +26,7 @@ $ ansible-galaxy install -r requirements.yml
 - [ ] Install GTK themes/icons
 - [x] Generate and link ssh config/keys
 - [x] Split tasks by application (term, xterm, ...)
+- [ ] Install rust and cargo packages
+- [ ] Review extra packages
+- [ ] Merge mostly of the group_vars into all
+- [ ] Revisit fedora installation
